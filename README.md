@@ -14,7 +14,7 @@ Open PowerShell in this project folder:
 powershell -ExecutionPolicy Bypass -File .\start.ps1
 ```
 
-Open **http://localhost:8080**. On first launch, create your operator username and password. No credentials are supplied or committed. Keep the terminal open while using the application; press Ctrl+C to stop.
+Open **http://localhost:8090**. On first launch, create your operator username and password. No credentials are supplied or committed. Keep the terminal open while using the application; press Ctrl+C to stop.
 
 The script creates `.venv`, installs the locked dependencies, builds the frontend and starts the API and independent simulation worker. For subsequent launches without reinstalling or rebuilding:
 
@@ -36,7 +36,7 @@ Start Docker Desktop / the Docker engine first:
 docker compose up --build
 ```
 
-Open **http://localhost:8080** and create the initial operator. Three services run: frontend/proxy, API, and simulation worker. The `conveyor-data` volume persists local files. There is no PostgreSQL, SQLite, Redis or database migration step.
+Open **http://localhost:8090** and create the initial operator. Three services run: frontend/proxy, API, and simulation worker. The `conveyor-data` volume persists local files. There is no PostgreSQL, SQLite, Redis or database migration step.
 
 Optional environment configuration:
 
@@ -127,7 +127,7 @@ Push-Location frontend
 npm ci
 npm run build
 npx playwright install chromium
-$env:BASE_URL = 'http://127.0.0.1:8080'
+$env:BASE_URL = 'http://127.0.0.1:8090'
 $env:TEST_USERNAME = 'your-test-operator'
 $env:TEST_PASSWORD = 'your-test-password'
 npm run test:e2e
@@ -136,7 +136,7 @@ Pop-Location
 
 Use an **isolated data directory** for acceptance: tests create/end runs and change settings. Set `CONVEYOR_DATA` before starting `scripts/run.py`. The tests bootstrap their own account if this directory is empty; the default password in the test fixture is for isolated test data only.
 
-For frontend development, run `npm run dev` in `frontend/`, API on port 8000 and worker on port 8001. Vite proxies `/api` including WebSockets. Full production startup uses port 8080 instead.
+For frontend development, run `npm run dev` in `frontend/`, API on port 8000 and worker on port 8001. Vite proxies `/api` including WebSockets. Full production startup uses port 8090 instead.
 
 ## Project map
 

@@ -1,0 +1,609 @@
+{
+  "generated_at": "2026-09-18T09:30:16.804500+00:00",
+  "provenance": "Actual 300-second SimPy runs from the supplied preset seeds",
+  "scenarios": {
+    "balanced": {
+      "seed": 42,
+      "duration_s": 300.0,
+      "final_state": "running",
+      "config": {
+        "speeds": [
+          0.8,
+          0.9,
+          0.8
+        ],
+        "lengths": [
+          5.0,
+          5.0,
+          5.0
+        ],
+        "capacities": [
+          8,
+          8,
+          8
+        ],
+        "weight_capacity": 100,
+        "arrival_rate": 22,
+        "service_rate": 30,
+        "buffer_capacity": 30,
+        "ambient": 25,
+        "warning": 65,
+        "shutdown": 80,
+        "recovery": 55,
+        "heating": 0.28,
+        "cooling": 0.012,
+        "base_power": 0.12,
+        "drive_power": 0.35,
+        "acceleration": 0.4,
+        "min_length": 0.35,
+        "max_length": 0.6,
+        "min_weight": 1,
+        "max_weight": 8,
+        "spacing": 0.15,
+        "queue_threshold": 12,
+        "sensor_missing": 0.01,
+        "seed": 42
+      },
+      "metrics": {
+        "speed": 0.822742226216513,
+        "load": 27.30070325183729,
+        "load_pct": 9.100234417279097,
+        "temperature": 46.11266618834207,
+        "throughput": 19.0,
+        "queue": 0,
+        "occupancy": 25.0,
+        "cycle_time": 29.45625737469199,
+        "power": 1.1890308073623848,
+        "energy": 0.10548686856375293,
+        "energy_per_parcel": 1.014296813113009,
+        "blocked": 70.80000000000047,
+        "starved": 44.600000000000094,
+        "generated": 110,
+        "accepted": 110,
+        "completed": 104,
+        "rejected": 0,
+        "inside": 6,
+        "mean_queue": 1.3579999999999732,
+        "max_queue": 4,
+        "max_temperature": 46.181496809307184
+      },
+      "missing_observations": 11,
+      "events": [
+        {
+          "id": "7dd33c0e01",
+          "kind": "state",
+          "detail": "idle \u2192 running",
+          "actor": "operator",
+          "simulation_time": 0.0,
+          "timestamp": "2026-09-18T09:30:16.326422+00:00"
+        }
+      ]
+    },
+    "surge": {
+      "seed": 73,
+      "duration_s": 300.0,
+      "final_state": "running",
+      "config": {
+        "speeds": [
+          0.8,
+          0.9,
+          0.8
+        ],
+        "lengths": [
+          5.0,
+          5.0,
+          5.0
+        ],
+        "capacities": [
+          8,
+          8,
+          8
+        ],
+        "weight_capacity": 100,
+        "arrival_rate": 22,
+        "service_rate": 30,
+        "buffer_capacity": 30,
+        "ambient": 25,
+        "warning": 65,
+        "shutdown": 80,
+        "recovery": 55,
+        "heating": 0.28,
+        "cooling": 0.012,
+        "base_power": 0.12,
+        "drive_power": 0.35,
+        "acceleration": 0.4,
+        "min_length": 0.35,
+        "max_length": 0.6,
+        "min_weight": 1,
+        "max_weight": 8,
+        "spacing": 0.15,
+        "queue_threshold": 12,
+        "sensor_missing": 0.01,
+        "seed": 73
+      },
+      "metrics": {
+        "speed": 0.7952381519943352,
+        "load": 97.3030361656877,
+        "load_pct": 32.43434538856257,
+        "temperature": 52.36409443819965,
+        "throughput": 23.0,
+        "queue": 27,
+        "occupancy": 100.0,
+        "cycle_time": 80.55760946928822,
+        "power": 1.4462222878460542,
+        "energy": 0.11761591691749346,
+        "energy_per_parcel": 1.0992141767990042,
+        "blocked": 204.9999999999969,
+        "starved": 2.4,
+        "generated": 204,
+        "accepted": 155,
+        "completed": 107,
+        "rejected": 49,
+        "inside": 48,
+        "mean_queue": 22.289999999999946,
+        "max_queue": 33,
+        "max_temperature": 52.43142653465284
+      },
+      "missing_observations": 9,
+      "events": [
+        {
+          "id": "f493d3fe27",
+          "kind": "state",
+          "detail": "idle \u2192 running",
+          "actor": "operator",
+          "simulation_time": 0.0,
+          "timestamp": "2026-09-18T09:30:16.380676+00:00"
+        },
+        {
+          "id": "9ffcdad4b3",
+          "kind": "fault",
+          "detail": "Arrival surge activated",
+          "actor": "scenario",
+          "simulation_time": 45.0,
+          "timestamp": "2026-09-18T09:30:16.387217+00:00"
+        },
+        {
+          "id": "f2ac1a27e6",
+          "kind": "recovery",
+          "detail": "Arrival surge cleared",
+          "actor": "scenario",
+          "simulation_time": 180.0,
+          "timestamp": "2026-09-18T09:30:16.417452+00:00"
+        }
+      ]
+    },
+    "slow-outfeed": {
+      "seed": 19,
+      "duration_s": 300.0,
+      "final_state": "running",
+      "config": {
+        "speeds": [
+          0.8,
+          0.9,
+          0.8
+        ],
+        "lengths": [
+          5.0,
+          5.0,
+          5.0
+        ],
+        "capacities": [
+          8,
+          8,
+          8
+        ],
+        "weight_capacity": 100,
+        "arrival_rate": 40.0,
+        "service_rate": 10.0,
+        "buffer_capacity": 30,
+        "ambient": 25,
+        "warning": 65,
+        "shutdown": 80,
+        "recovery": 55,
+        "heating": 0.28,
+        "cooling": 0.012,
+        "base_power": 0.12,
+        "drive_power": 0.35,
+        "acceleration": 0.4,
+        "min_length": 0.35,
+        "max_length": 0.6,
+        "min_weight": 1,
+        "max_weight": 8,
+        "spacing": 0.15,
+        "queue_threshold": 12,
+        "sensor_missing": 0.01,
+        "seed": 19
+      },
+      "metrics": {
+        "speed": 0.7969867242504297,
+        "load": 91.03943705294472,
+        "load_pct": 30.346479017648242,
+        "temperature": 52.80995562626391,
+        "throughput": 9.0,
+        "queue": 33,
+        "occupancy": 95.83333333333334,
+        "cycle_time": 131.57664174335503,
+        "power": 1.4365297789523823,
+        "energy": 0.12125111027230659,
+        "energy_per_parcel": 2.8869311969596807,
+        "blocked": 256.799999999994,
+        "starved": 4.200000000000001,
+        "generated": 223,
+        "accepted": 95,
+        "completed": 42,
+        "rejected": 128,
+        "inside": 53,
+        "mean_queue": 26.57666666666669,
+        "max_queue": 33,
+        "max_temperature": 53.04199852938728
+      },
+      "missing_observations": 10,
+      "events": [
+        {
+          "id": "96347c1daf",
+          "kind": "state",
+          "detail": "idle \u2192 running",
+          "actor": "operator",
+          "simulation_time": 0.0,
+          "timestamp": "2026-09-18T09:30:16.444127+00:00"
+        }
+      ]
+    },
+    "heavy": {
+      "seed": 61,
+      "duration_s": 300.0,
+      "final_state": "running",
+      "config": {
+        "speeds": [
+          0.8,
+          0.9,
+          0.8
+        ],
+        "lengths": [
+          5.0,
+          5.0,
+          5.0
+        ],
+        "capacities": [
+          8,
+          8,
+          8
+        ],
+        "weight_capacity": 100,
+        "arrival_rate": 30.0,
+        "service_rate": 30,
+        "buffer_capacity": 30,
+        "ambient": 25,
+        "warning": 65,
+        "shutdown": 80,
+        "recovery": 55,
+        "heating": 0.28,
+        "cooling": 0.012,
+        "base_power": 0.12,
+        "drive_power": 0.35,
+        "acceleration": 0.4,
+        "min_length": 0.35,
+        "max_length": 0.6,
+        "min_weight": 12.0,
+        "max_weight": 22.0,
+        "spacing": 0.15,
+        "queue_threshold": 12,
+        "sensor_missing": 0.01,
+        "seed": 61
+      },
+      "metrics": {
+        "speed": 0.737424407404339,
+        "load": 260.2331386633719,
+        "load_pct": 86.7443795544573,
+        "temperature": 64.9686065694047,
+        "throughput": 22.0,
+        "queue": 33,
+        "occupancy": 66.66666666666666,
+        "cycle_time": 64.29867157807354,
+        "power": 1.9258097717705458,
+        "energy": 0.1587859822784419,
+        "energy_per_parcel": 1.5416114784314747,
+        "blocked": 210.3999999999966,
+        "starved": 1.2,
+        "generated": 166,
+        "accepted": 149,
+        "completed": 103,
+        "rejected": 17,
+        "inside": 46,
+        "mean_queue": 18.22733333333338,
+        "max_queue": 33,
+        "max_temperature": 64.97708966311366
+      },
+      "missing_observations": 11,
+      "events": [
+        {
+          "id": "617f07a55b",
+          "kind": "state",
+          "detail": "idle \u2192 running",
+          "actor": "operator",
+          "simulation_time": 0.0,
+          "timestamp": "2026-09-18T09:30:16.533728+00:00"
+        }
+      ]
+    },
+    "friction": {
+      "seed": 27,
+      "duration_s": 300.0,
+      "final_state": "thermal",
+      "config": {
+        "speeds": [
+          0.8,
+          0.9,
+          0.8
+        ],
+        "lengths": [
+          5.0,
+          5.0,
+          5.0
+        ],
+        "capacities": [
+          8,
+          8,
+          8
+        ],
+        "weight_capacity": 100,
+        "arrival_rate": 22,
+        "service_rate": 30,
+        "buffer_capacity": 30,
+        "ambient": 25,
+        "warning": 65,
+        "shutdown": 80,
+        "recovery": 55,
+        "heating": 0.28,
+        "cooling": 0.012,
+        "base_power": 0.12,
+        "drive_power": 0.35,
+        "acceleration": 0.4,
+        "min_length": 0.35,
+        "max_length": 0.6,
+        "min_weight": 1,
+        "max_weight": 8,
+        "spacing": 0.15,
+        "queue_threshold": 12,
+        "sensor_missing": 0.01,
+        "seed": 27
+      },
+      "metrics": {
+        "speed": 0.0,
+        "load": 40.24310396907508,
+        "load_pct": 13.414367989691693,
+        "temperature": 30.601401167579187,
+        "throughput": 0.0,
+        "queue": 1,
+        "occupancy": 37.5,
+        "cycle_time": 21.3966960643309,
+        "power": 0.36,
+        "energy": 0.07650003425011358,
+        "energy_per_parcel": 3.0600013700045428,
+        "blocked": 0.6000000000000001,
+        "starved": 16.99999999999997,
+        "generated": 108,
+        "accepted": 34,
+        "completed": 25,
+        "rejected": 74,
+        "inside": 9,
+        "mean_queue": 0.9099999999999763,
+        "max_queue": 3,
+        "max_temperature": 80.04549609690773
+      },
+      "missing_observations": 11,
+      "events": [
+        {
+          "id": "e31bed6629",
+          "kind": "state",
+          "detail": "idle \u2192 running",
+          "actor": "operator",
+          "simulation_time": 0.0,
+          "timestamp": "2026-09-18T09:30:16.618433+00:00"
+        },
+        {
+          "id": "7ae4723212",
+          "kind": "fault",
+          "detail": "Mechanical friction activated",
+          "actor": "scenario",
+          "simulation_time": 30.0,
+          "timestamp": "2026-09-18T09:30:16.624512+00:00"
+        },
+        {
+          "id": "d105586d07",
+          "kind": "safety",
+          "detail": "Thermal shutdown latched",
+          "actor": "system",
+          "simulation_time": 109.8,
+          "timestamp": "2026-09-18T09:30:16.637832+00:00"
+        }
+      ]
+    },
+    "sensor": {
+      "seed": 91,
+      "duration_s": 300.0,
+      "final_state": "running",
+      "config": {
+        "speeds": [
+          0.8,
+          0.9,
+          0.8
+        ],
+        "lengths": [
+          5.0,
+          5.0,
+          5.0
+        ],
+        "capacities": [
+          8,
+          8,
+          8
+        ],
+        "weight_capacity": 100,
+        "arrival_rate": 22,
+        "service_rate": 30,
+        "buffer_capacity": 30,
+        "ambient": 25,
+        "warning": 65,
+        "shutdown": 80,
+        "recovery": 55,
+        "heating": 0.28,
+        "cooling": 0.012,
+        "base_power": 0.12,
+        "drive_power": 0.35,
+        "acceleration": 0.4,
+        "min_length": 0.35,
+        "max_length": 0.6,
+        "min_weight": 1,
+        "max_weight": 8,
+        "spacing": 0.15,
+        "queue_threshold": 12,
+        "sensor_missing": 0.01,
+        "seed": 91
+      },
+      "metrics": {
+        "speed": 0.821351968763552,
+        "load": 29.469285505547482,
+        "load_pct": 9.823095168515827,
+        "temperature": 45.94289193435635,
+        "throughput": 21.0,
+        "queue": 0,
+        "occupancy": 25.0,
+        "cycle_time": 21.045922090554274,
+        "power": 1.207642377731555,
+        "energy": 0.10048515841253186,
+        "energy_per_parcel": 1.1042325100278225,
+        "blocked": 3.0000000000000004,
+        "starved": 26.599999999999937,
+        "generated": 97,
+        "accepted": 97,
+        "completed": 91,
+        "rejected": 0,
+        "inside": 6,
+        "mean_queue": 0.8973333333333212,
+        "max_queue": 4,
+        "max_temperature": 45.96875751400658
+      },
+      "missing_observations": 54,
+      "events": [
+        {
+          "id": "3119c25593",
+          "kind": "state",
+          "detail": "idle \u2192 running",
+          "actor": "operator",
+          "simulation_time": 0.0,
+          "timestamp": "2026-09-18T09:30:16.657693+00:00"
+        },
+        {
+          "id": "8a7217849f",
+          "kind": "fault",
+          "detail": "Sensor dropout activated",
+          "actor": "scenario",
+          "simulation_time": 40.0,
+          "timestamp": "2026-09-18T09:30:16.662344+00:00"
+        },
+        {
+          "id": "1ca79d2201",
+          "kind": "recovery",
+          "detail": "Sensor dropout cleared",
+          "actor": "scenario",
+          "simulation_time": 85.0,
+          "timestamp": "2026-09-18T09:30:16.672503+00:00"
+        }
+      ]
+    },
+    "recovery": {
+      "seed": 13,
+      "duration_s": 300.0,
+      "final_state": "running",
+      "config": {
+        "speeds": [
+          0.8,
+          0.9,
+          0.8
+        ],
+        "lengths": [
+          5.0,
+          5.0,
+          5.0
+        ],
+        "capacities": [
+          8,
+          8,
+          8
+        ],
+        "weight_capacity": 100,
+        "arrival_rate": 30.0,
+        "service_rate": 30,
+        "buffer_capacity": 30,
+        "ambient": 25,
+        "warning": 65,
+        "shutdown": 80,
+        "recovery": 55,
+        "heating": 0.28,
+        "cooling": 0.012,
+        "base_power": 0.12,
+        "drive_power": 0.35,
+        "acceleration": 0.4,
+        "min_length": 0.35,
+        "max_length": 0.6,
+        "min_weight": 1,
+        "max_weight": 8,
+        "spacing": 0.15,
+        "queue_threshold": 12,
+        "sensor_missing": 0.01,
+        "seed": 13
+      },
+      "metrics": {
+        "speed": 0.796344465738272,
+        "load": 92.61533459361992,
+        "load_pct": 30.871778197873308,
+        "temperature": 52.45758669766275,
+        "throughput": 23.0,
+        "queue": 32,
+        "occupancy": 95.83333333333334,
+        "cycle_time": 116.12838113475075,
+        "power": 1.4426849433443687,
+        "energy": 0.11778987143387375,
+        "energy_per_parcel": 1.5297385900503084,
+        "blocked": 245.19999999999462,
+        "starved": 0.4,
+        "generated": 173,
+        "accepted": 129,
+        "completed": 77,
+        "rejected": 44,
+        "inside": 52,
+        "mean_queue": 23.186666666666518,
+        "max_queue": 33,
+        "max_temperature": 52.45758669766275
+      },
+      "missing_observations": 12,
+      "events": [
+        {
+          "id": "49f69c9f7b",
+          "kind": "state",
+          "detail": "idle \u2192 running",
+          "actor": "operator",
+          "simulation_time": 0.0,
+          "timestamp": "2026-09-18T09:30:16.732487+00:00"
+        },
+        {
+          "id": "2c0f9edd74",
+          "kind": "fault",
+          "detail": "Downstream blockage activated",
+          "actor": "scenario",
+          "simulation_time": 40.0,
+          "timestamp": "2026-09-18T09:30:16.740233+00:00"
+        },
+        {
+          "id": "f0b8f28ae6",
+          "kind": "recovery",
+          "detail": "Downstream blockage cleared",
+          "actor": "scenario",
+          "simulation_time": 120.0,
+          "timestamp": "2026-09-18T09:30:16.758653+00:00"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,56 @@
+name: conveyorlab
+services:
+  web:
+    build:
+      context: .
+      dockerfile: deployment/Dockerfile.web
+    ports:
+      - "127.0.0.1:${PORT:-8090}:80"
+    depends_on:
+      api:
+        condition: service_healthy
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "wget", "--spider", "-q", "http://127.0.0.1/"]
+      interval: 20s
+      timeout: 5s
+      retries: 3
+  api:
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+    environment:
+      WORKER_URL: http://worker:8001
+      CONVEYOR_DATA: /data
+      SECURE_COOKIES: ${SECURE_COOKIES:-false}
+      ALLOWED_ORIGINS: ${ALLOWED_ORIGINS:-http://localhost:8090,http://127.0.0.1:8090}
+      SETUP_TOKEN: ${SETUP_TOKEN:-}
+    volumes:
+      - conveyor-data:/data
+    depends_on:
+      worker:
+        condition: service_healthy
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/api/health')"]
+      interval: 15s
+      timeout: 5s
+      retries: 5
+  worker:
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+    command: ["uvicorn", "app.worker:app", "--host", "0.0.0.0", "--port", "8001", "--workers", "1"]
+    environment:
+      CONVEYOR_DATA: /data
+      CONVEYOR_KEEP_RUNS: ${CONVEYOR_KEEP_RUNS:-50}
+    volumes:
+      - conveyor-data:/data
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8001/health')"]
+      interval: 15s
+      timeout: 5s
+      retries: 5
+volumes:
+  conveyor-data:
