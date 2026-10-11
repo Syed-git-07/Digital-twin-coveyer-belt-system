@@ -19,8 +19,9 @@ import {
   XAxis,
   YAxis,
 } from "recharts";
-import type { ReactNode } from "react";
+import { useState, type ReactNode } from "react";
 import type { Observation, Snapshot } from "./types";
+import { Conveyor3D } from "./Conveyor3D";
 
 export const fmt = (value: number | null | undefined, digits = 1) =>
   value == null
@@ -231,14 +232,59 @@ export function ConveyorDrawing({
   onZone: (zone: number) => void;
   selected?: number;
 }) {
+  const [viewMode, setViewMode] = useState<"3d" | "2d">(() => {
+    try {
+      return (localStorage.getItem("conveyor_view_mode") as "3d" | "2d") || "3d";
+    } catch {
+      return "3d";
+    }
+  });
+
+  const handleSetMode = (mode: "3d" | "2d") => {
+    setViewMode(mode);
+    try {
+      localStorage.setItem("conveyor_view_mode", mode);
+    } catch {
+      // ignore
+    }
+  };
+
+  if (viewMode === "3d") {
+    return (
+      <Conveyor3D
+        snapshot={snapshot}
+        onZone={onZone}
+        selected={selected}
+        onSwitchTo2D={() => handleSetMode("2d")}
+      />
+    );
+  }
+
   const running = snapshot.state === "running";
   return (
     <div className="twin-canvas">
       <div className="twin-corner">
-        <span className="mini-label">LINE 01 / TOP VIEW</span>
-        <span className="mini-label">
-          FLOW DIRECTION <ArrowRight size={13} />
-        </span>
+        <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
+          <span className="mini-label">LINE 01 / TOP VIEW</span>
+          <span className="mini-label">
+            FLOW DIRECTION <ArrowRight size={13} />
+          </span>
+        </div>
+        <div style={{ display: "inline-flex", borderRadius: 6, padding: 2, background: "#e2e8f0", border: "1px solid #cbd5e1" }}>
+          <button
+            type="button"
+            onClick={() => handleSetMode("3d")}
+            style={{ padding: "2px 8px", fontSize: 11, fontFamily: "monospace", borderRadius: 4, border: "none", background: "transparent", color: "#475569", cursor: "pointer" }}
+            title="Switch to 3D Digital Twin"
+          >
+            3D
+          </button>
+          <span
+            style={{ padding: "2px 8px", fontSize: 11, fontFamily: "monospace", borderRadius: 4, background: "#087f73", color: "#ffffff", fontWeight: 600 }}
+          >
+            2D
+          </span>
+        </div>
       </div>
       <svg
         viewBox="0 0 1000 250"
